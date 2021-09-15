@@ -3,7 +3,7 @@
 
 import 'package:flutter/widgets.dart';
 
-import '../shared/utils.dart' show DayBuilder, FocusedDayBuilder;
+import '../shared/utils.dart' show DayBuilder, FocusedDayBuilder,HeaderBuilder;
 
 /// Signature for a function that creates a single event marker for a given `day`.
 /// Contains a single `event` associated with that `day`.
@@ -78,6 +78,9 @@ class CalendarBuilders<T> {
   /// Use to customize header's title using different widget
   final DayBuilder? headerTitleBuilder;
 
+  /// Use to customize header using different widget
+  final HeaderBuilder? headerBuilder;
+
   /// Creates `CalendarBuilders` for `TableCalendar` widget.
   const CalendarBuilders({
     this.prioritizedBuilder,
@@ -95,5 +98,6 @@ class CalendarBuilders<T> {
     this.markerBuilder,
     this.dowBuilder,
     this.headerTitleBuilder,
+    this.headerBuilder,
   });
 }

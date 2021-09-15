@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:table_calendar_example/pages/rock_calendar_example.dart';
 
 import 'pages/basics_example.dart';
 import 'pages/complex_example.dart';
@@ -43,6 +44,14 @@ class _StartPageState extends State<StartPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 20.0),
+            ElevatedButton(
+              child: Text('Rock Calendar'),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => RockCalendarExample()),
+              ),
+            ),
             const SizedBox(height: 20.0),
             ElevatedButton(
               child: Text('Basics'),

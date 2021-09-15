@@ -449,6 +449,17 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
           ValueListenableBuilder<DateTime>(
             valueListenable: _focusedDay,
             builder: (context, value, _) {
+              if (widget.calendarBuilders.headerBuilder != null) {
+                final headerCallback = widget.calendarBuilders.headerBuilder!;
+                final headerWidget = headerCallback.call(
+                  context,
+                  value,
+                  _onLeftChevronTap,
+                  _onRightChevronTap,
+                  widget.calendarFormat,
+                );
+                return headerWidget;
+              }
               return CalendarHeader(
                 headerTitleBuilder: widget.calendarBuilders.headerTitleBuilder,
                 focusedMonth: value,
