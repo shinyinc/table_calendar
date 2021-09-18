@@ -66,6 +66,9 @@ class CalendarWidget extends StatelessWidget {
           ),
           calendarStyle: CalendarStyle(
             outsideDaysVisible: false,
+            rowDecoration: BoxDecoration(
+              border: Border(bottom: BorderSide()), // customize
+            ),
           ),
           onDaySelected: _onDaySelected,
           onFormatChanged: (format) {
