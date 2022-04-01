@@ -498,6 +498,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
             startingDayOfWeek: widget.startingDayOfWeek,
             dowDecoration: widget.daysOfWeekStyle.decoration,
             rowDecoration: widget.calendarStyle.rowDecoration,
+            tableBorder: widget.calendarStyle.tableBorder,
             dowVisible: widget.daysOfWeekVisible,
             dowHeight: widget.daysOfWeekHeight,
             rowHeight: widget.rowHeight,
@@ -605,7 +606,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
         final isWeekend = _isWeekend(day, weekendDays: widget.weekendDays);
 
         Widget content = CellContent(
-          key: ValueKey('cell-content-${day.year}-${day.month}-${day.day}'),
+          key: ValueKey('CellContent-${day.year}-${day.month}-${day.day}'),
           day: day,
           focusedDay: focusedDay,
           calendarStyle: widget.calendarStyle,
