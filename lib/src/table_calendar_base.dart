@@ -156,18 +156,22 @@ class _TableCalendarBaseState extends State<TableCalendarBase>
     if (shouldAnimate && widget.pageAnimationEnabled) {
       if ((currentIndex - _previousIndex).abs() > 1) {
         final jumpIndex =
-            currentIndex > _previousIndex ? currentIndex - 1 : currentIndex + 1;
-
-        _pageController.jumpToPage(jumpIndex);
+        currentIndex > _previousIndex ? currentIndex - 1 : currentIndex + 1;
+        WidgetsBinding.instance?.addPostFrameCallback((_) {
+          _pageController.jumpToPage(jumpIndex);
+        });
       }
-
-      _pageController.animateToPage(
-        currentIndex,
-        duration: widget.pageAnimationDuration,
-        curve: widget.pageAnimationCurve,
-      );
+      WidgetsBinding.instance?.addPostFrameCallback((_) {
+        _pageController.animateToPage(
+          currentIndex,
+          duration: widget.pageAnimationDuration,
+          curve: widget.pageAnimationCurve,
+        );
+      });
     } else {
-      _pageController.jumpToPage(currentIndex);
+      WidgetsBinding.instance?.addPostFrameCallback((_) {
+        _pageController.jumpToPage(currentIndex);
+      });
     }
 
     _previousIndex = currentIndex;
